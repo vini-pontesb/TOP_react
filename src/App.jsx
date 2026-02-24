@@ -1,21 +1,6 @@
 import './App.css'
 
-//Rendering Lists
-function App() {
-  const animals = ["Lion", "Cow", "Snake", "Lizard"]
-  return (
-    <div>
-      <h1>Animals: </h1>
-      <ul>
-        {animals.map((animal) => {
-          return <li key={animal}>{animal}</li>
-        })}
-      </ul>
-    </div>
-  )
-}
-
-/* The same thing, but using props
+//Rendering Lists with props
 function ListItem(props) {
   return <li>{props.animal}</li>
 }
@@ -40,7 +25,5 @@ function App() {
     </div>
   );
 }
-*/
-
 
 export default App
