@@ -1,32 +1,32 @@
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
 
-// Passing functions as props
-function Button(props) {
-  const buttonStyle ={
-    color: props.color,
-    fontSize: props.fontSize + "px"
-  };
-  return (
-    <button style={buttonStyle} onClick={props.handleClick}>
-      {props.text}
-    </button>
-  );
-}
+const COLORS = ["pink", "green", "blue", "yellow", "purple"];
 
 export default function App() {
+  const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
 
-  const handleButtonClick = (url) => {
-    window.location.href = url;
+  const onButtonClick = (color) => () => {
+    setBackgroundColor(color);
   };
 
   return (
-    <>
-    <h1>Buttons</h1>
-    <div>
-      <Button text="Go to GitHub" color="gray" fontSize={16} handleClick={() => handleButtonClick("https://github.com")} />
-      <Button text="Go to Google" color="red" fontSize={16} handleClick={() => handleButtonClick("https://google.com")} />
-      <Button text="Go to LinkedIn" color="blue" fontSize={16} handleClick={() => handleButtonClick("https://linkedin.com")} />
+    <div
+      className="App"
+      style={{
+        backgroundColor
+      }}
+    >
+      {COLORS.map((color) => (
+        <button
+          type="button"
+          key={color}
+          onClick={onButtonClick(color)}
+          className={backgroundColor === color ? "selected" : ""}
+        >
+          {color}
+        </button>
+      ))}
     </div>
-    </>
   );
-}
+} 
