@@ -1,9 +1,16 @@
-const Header = () => {
+const HeaderTrue = () => {
     return(
-        <header>
-            <h1>Button list</h1>
-        </header>
+        <>
+            <h1>I'm conditionally rendered!</h1>
+        </>
+    )
+}
+const HeaderFalse = () => {
+    return (
+        <>
+            <h1>I'm not conditionally rendered!</h1>
+        </>
     )
 }
 
-export default Header
+export {HeaderTrue, HeaderFalse};
